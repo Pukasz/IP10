@@ -414,7 +414,7 @@ By the final day, the garden bloomed with color and greenery. The class toured e
                 }
             }
 
-            // Always save the score so learning-path.html can read it
+            // Always save the score so learningpath.html can read it
             const today = new Date().toLocaleDateString('en-GB', { day:'numeric', month:'short', year:'numeric' });
             localStorage.setItem('sq3r_score', JSON.stringify({ score: correctCount, total, date: today }));
 
@@ -426,7 +426,7 @@ By the final day, the garden bloomed with color and greenery. The class toured e
                     <p><strong>Incorrect questions:</strong> ${incorrectList.length ? incorrectList.join(', ') : 'None'}</p>
                     <p><strong>Unanswered questions:</strong> ${unansweredList.length ? unansweredList.join(', ') : 'None'}</p>
                     <p style="margin-top:0.8rem;">
-                        <a href="learning-path.html" style="color:#667eea;font-weight:bold;">🗺 View your personalised Learning Path →</a>
+                        <a href="learningpath.html" style="color:#667eea;font-weight:bold;">🗺 View your personalised Learning Path →</a>
                     </p>
                 `;
                 resultBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -435,7 +435,7 @@ By the final day, the garden bloomed with color and greenery. The class toured e
                 resultBox.innerHTML = `
                     <h3>✅ Answers submitted! Results are hidden.</h3>
                     <p style="margin-top:0.8rem;">
-                        <a href="learning-path.html" style="color:#667eea;font-weight:bold;">🗺 View your personalised Learning Path →</a>
+                        <a href="learningpath.html" style="color:#667eea;font-weight:bold;">🗺 View your personalised Learning Path →</a>
                     </p>
                 `;
                 resultBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
