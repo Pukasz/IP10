@@ -5,16 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reading Comprehension & Communication Skills - Wireframe</title>
     <style>
-                .wireframe-note {
-            background-color: #ffffcc;
-            border: 1px solid #ffcc00;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            border-radius: 4px;
-            font-size: 0.9rem;
-        }
-        
-        .tab-content {
+                .tab-content {
             display: none;
             position: fixed;
             top: 0;
@@ -88,6 +79,12 @@
         nav {
             display: flex;
             gap: 2rem;
+            align-items: center;
+        }
+        
+        #authNav {
+            display: inline-flex;
+            align-items: center;
         }
         
         nav a {
@@ -278,26 +275,18 @@
                 grid-template-columns: 1fr;
             }
         }
-        
-        .wireframe-note {
-            background-color: #ffffcc;
-            border: 1px solid #ffcc00;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            border-radius: 4px;
-            font-size: 0.9rem;
-        }
     </style>
 </head>
 <body>
     <!-- Header/Navigation -->
     <header>
-        <div class="logo">📚 Example name </div>
+        <div class="logo">📚 SQ3R Learning </div>
         <nav>
             <a href="#about">Why Us?</a>
             <a href="#benefits">How This Program Helps</a>
             <a href="#practice">Practice Test</a>
             <a href="#contact">Contact</a>
+            <span id="authNav"></span>
         </nav>
     </header>
     
@@ -305,15 +294,11 @@
     <div class="hero">
         <h1>Boost Reading & Communication Skills</h1>
         <p>Help your child master comprehension and express themselves confidently</p>
-        <button class="cta-button">Start Your Practice Test</button>
+        <a href="login.html?redirect=practice.html" class="cta-button">Start Your Practice Test</a>
     </div>
     
     <!-- Main Content -->
     <div class="container">
-        <div class="wireframe-note">
-            <strong>⚙️ Wireframe Note:</strong> This is a visual representation of the website structure. Colors, fonts, and exact design will vary in the final version.
-        </div>
-        
         <!-- Why Section -->
         <section id="about">
             <h2>Why Us</h2>
@@ -379,7 +364,7 @@
                         <li><strong>Communication Tasks:</strong> Expressing ideas clearly and concisely</li>
                         <li><strong>Instant Feedback:</strong> Detailed explanations for each answer</li>
                     </ul>
-                    <button class="cta-button" style="margin-top: 1.5rem;">Take the Practice Test Now</button>
+                    <a href="login.html?redirect=practice.html" class="cta-button" style="margin-top: 1.5rem;">Take the Practice Test Now</a>
                 </div>
                 
                 <div class="test-preview">
@@ -424,14 +409,14 @@
                 </div>
             </div>
             <div style="text-align: center; margin-top: 2rem;">
-                <button class="cta-button">Create Free Account</button>
+                <a href="register.html" class="cta-button">Create Free Account</a>
             </div>
         </section>
     </div>
     
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 IDK YET - Educational Platform. All rights reserved.</p>
+        <p>&copy; 2026 SQ3R Learning - Educational Platform. All rights reserved.</p>
         <p>Helping children master reading comprehension and communication skills.</p>
     </footer>
      <div id="practiceTab" class="tab-content">
@@ -450,6 +435,18 @@
         function closePracticeTab() {
             document.getElementById('practiceTab').classList.remove('active');
         }
+
+        // Guest page only: if signed in, route to signed-in home
+        (function() {
+            const user = localStorage.getItem('sq3r_user');
+            if (user) {
+                window.location.href = 'signedin-home.html';
+                return;
+            }
+            const nav = document.getElementById('authNav');
+            nav.innerHTML = `<a href="login.html" style="margin-left:1rem;">Sign In</a>
+                <a href="register.html" style="margin-left:1rem;">Sign Up</a>`;
+        })();
     </script>
 </body>
 

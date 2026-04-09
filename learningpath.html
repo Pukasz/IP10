@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Learning Path - SQ3R Learning</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f5f5f5; color: #333; }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { font-size: 1.5rem; font-weight: bold; }
+        nav { display: flex; align-items: center; gap: 1rem; }
+        nav a { color: white; text-decoration: none; padding: 0.45rem 0.8rem; border-radius: 4px; }
+        nav a:hover { background: #34495e; }
+
+        .hero {
+            text-align: center;
+            padding: 3rem 1.2rem 2rem;
+            color: white;
+        }
+        .hero h1 { font-size: 2rem; margin-bottom: 0.6rem; }
+        .hero .score-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            border-radius: 50px;
+            padding: 0.4rem 1.2rem;
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Per-level hero colours */
+        .hero.beginner     { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+        .hero.elementary   { background: linear-gradient(135deg, #e67e22, #d35400); }
+        .hero.intermediate { background: linear-gradient(135deg, #f39c12, #e67e22); }
+        .hero.proficient   { background: linear-gradient(135deg, #27ae60, #1e8449); }
+        .hero.advanced     { background: linear-gradient(135deg, #667eea, #764ba2); }
+
+        .container { max-width: 860px; margin: 2rem auto; padding: 0 1rem; }
+
+        .level-banner {
+            border-radius: 10px;
+            padding: 1.5rem 1.8rem;
+            margin-bottom: 1.8rem;
+            color: white;
+        }
+        .level-banner.beginner     { background: #e74c3c; }
+        .level-banner.elementary   { background: #e67e22; }
+        .level-banner.intermediate { background: #f39c12; color: #333; }
+        .level-banner.proficient   { background: #27ae60; }
+        .level-banner.advanced     { background: #667eea; }
+
+        .level-banner h2 { font-size: 1.5rem; margin-bottom: 0.4rem; }
+        .level-banner p  { opacity: 0.93; line-height: 1.55; }
+
+        .steps { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+
+        .step {
+            background: white;
+            border-radius: 8px;
+            padding: 1.2rem 1.4rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+        .step-num {
+            min-width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            background: #667eea;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+        .step-body h3 { color: #2c3e50; margin-bottom: 0.3rem; }
+        .step-body p  { color: #666; line-height: 1.55; font-size: 0.95rem; }
+
+        .resources {
+            background: white;
+            border-radius: 8px;
+            padding: 1.4rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+            margin-bottom: 2rem;
+        }
+        .resources h2 { color: #2c3e50; margin-bottom: 1rem; }
+        .resource-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+        .resource-list li {
+            padding: 0.65rem 1rem;
+            background: #f0f4ff;
+            border-left: 4px solid #667eea;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            color: #444;
+        }
+
+        .practice-pack {
+            background: white;
+            border-radius: 8px;
+            padding: 1.4rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+            margin-bottom: 2rem;
+        }
+        .practice-pack h2 { color: #2c3e50; margin-bottom: 0.8rem; }
+        .pack-label {
+            display: inline-block;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            background: #eef2ff;
+            color: #4f46e5;
+            border: 1px solid #c7d2fe;
+            border-radius: 999px;
+            padding: 0.25rem 0.8rem;
+        }
+        .q-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 0.9rem;
+            margin-bottom: 0.8rem;
+        }
+        .q-card:last-child { margin-bottom: 0; }
+        .q-card p { margin-bottom: 0.55rem; color: #374151; }
+        .q-card ul { margin-left: 1.1rem; color: #4b5563; }
+        .q-card li { margin-bottom: 0.25rem; }
+
+        .actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.4rem;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .btn-primary { background: #667eea; color: white; }
+        .btn-primary:hover { background: #5a67d8; }
+        .btn-secondary { background: white; color: #667eea; border: 2px solid #667eea; }
+        .btn-secondary:hover { background: #f0f4ff; }
+
+        .no-score {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+        }
+        .no-score p { color: #666; margin-bottom: 1rem; }
+
+        footer { text-align: center; padding: 1.5rem; color: #666; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">📚 SQ3R Learning</div>
+        <nav>
+            <a href="signedin-home.html">Home</a>
+            <a href="practice.html">Practice Test</a>
+            <span id="authNav"></span>
+        </nav>
+    </header>
+
+    <div class="hero" id="heroSection">
+        <h1 id="heroTitle">Your Learning Path</h1>
+        <div class="score-badge" id="scoreBadge"></div>
+    </div>
+
+    <main class="container" id="mainContent"></main>
+
+    <footer>&copy; 2026 SQ3R Learning - Educational Platform</footer>
+
+    <script>
+        // --- Auth guard ---
+        const user = localStorage.getItem('sq3r_user');
+        if (!user) {
+            window.location.href = 'login.html?redirect=learning-path.html';
+        }
+
+        document.getElementById('authNav').innerHTML = `
+            <span style="opacity:0.85;">👤 ${user}</span>
+            <a href="#" onclick="signOut()">Sign Out</a>
+        `;
+        function signOut() {
+            localStorage.removeItem('sq3r_user');
+            window.location.href = 'wireframe.html';
+        }
+
+        // --- Score & level logic ---
+        const TOTAL = 25;
+        const scoreData = JSON.parse(localStorage.getItem('sq3r_score') || 'null');
+
+        const levels = [
+            {
+                key: 'beginner',
+                label: '🔴 Beginner',
+                range: [0, 7],
+                desc: 'You\'re just starting out — and that\'s completely okay! Focus on building the core foundations of reading comprehension before moving on.',
+                steps: [
+                    { title: 'Learn to Identify the Main Idea', body: 'Practice finding the central point of short paragraphs. Ask yourself: "What is this mostly about?" after each one.' },
+                    { title: 'Build Your Vocabulary', body: 'Pick 5 unfamiliar words a day, write them down, look up their meanings and use them in a sentence.' },
+                    { title: 'Read Aloud Daily', body: 'Choose a short passage (1–2 paragraphs) and read it aloud. Hearing the words helps with fluency and comprehension.' },
+                    { title: 'Answer Who / What / When / Where / Why', body: 'After reading any passage, answer these five questions. This simple habit builds strong literal comprehension.' },
+                    { title: 'Retake the Practice Test', body: 'After 1–2 weeks of practice, retake the test to track your improvement.' }
+                ],
+                resources: [
+                    '📖 "Charlotte\'s Web" — classic story with clear narrative structure',
+                    '🧩 Vocabulary flash cards (physical or apps like Quizlet)',
+                    '🎧 Audiobooks to follow along while listening',
+                    '📝 Reading response journal — write 2–3 sentences about each passage'
+                ]
+            },
+            {
+                key: 'elementary',
+                label: '🟠 Elementary',
+                range: [8, 12],
+                desc: 'You have a basic understanding but need to strengthen how you interpret what you read and expand the range of texts you can handle.',
+                steps: [
+                    { title: 'Practice Inference Skills', body: 'Read passages and ask "What does the author imply but not say directly?" Look for clues between the lines.' },
+                    { title: 'Summarise in Your Own Words', body: 'After each reading, write 2–3 sentences summarising it without looking back. This locks in understanding.' },
+                    { title: 'Expand Your Reading Diet', body: 'Try different text types: newspaper articles, short stories, and factual reports. Different formats stretch your skills.' },
+                    { title: 'Study Word Roots & Prefixes', body: 'Knowing common roots (e.g. "spec" = see, "bene" = good) helps you decode unfamiliar words in context.' },
+                    { title: 'Retake the Practice Test', body: 'Aim to reach the Intermediate level within 2–3 weeks.' }
+                ],
+                resources: [
+                    '📰 Age-appropriate news articles (e.g. BBC Newsround, Scholastic News)',
+                    '📚 Short story collections — try reading one story per sitting',
+                    '🔠 Word root worksheets and prefix/suffix lists',
+                    '📝 Summarisation practice: paragraph → 1 sentence'
+                ]
+            },
+            {
+                key: 'intermediate',
+                label: '🟡 Intermediate',
+                range: [13, 17],
+                desc: 'Good work — you\'re in the middle tier! You can understand most passages but need to sharpen how you analyse language, tone and author intent.',
+                steps: [
+                    { title: 'Identify Author\'s Purpose & Tone', body: 'Ask: "Why did the author write this — to inform, persuade, entertain or describe?" Then identify the tone (e.g. serious, humorous, critical).' },
+                    { title: 'Practise Literary Devices', body: 'Learn to spot simile, metaphor, personification, hyperbole and irony. These questions appear in the synonym and passage sections.' },
+                    { title: 'Work on SAT/ACT Style Questions', body: 'Practice questions that ask about word meaning in context and how a specific line contributes to the passage.' },
+                    { title: 'Read Complex Non-Fiction', body: 'Move towards editorials, opinion pieces and essays. These challenge you to separate fact from opinion and follow an argument.' },
+                    { title: 'Retake the Practice Test', body: 'Target the Proficient band. Focus on the literary device and synonym sections where marks are easiest to gain.' }
+                ],
+                resources: [
+                    '📰 Opinion editorials and essays from quality newspapers',
+                    '📗 "The Giver" or "Animal Farm" — short novels rich in literary devices',
+                    '🎓 Khan Academy — free reading comprehension exercises',
+                    '🗂 Literary device reference sheet (keep one handy while practising)'
+                ]
+            },
+            {
+                key: 'proficient',
+                label: '🟢 Proficient',
+                range: [18, 21],
+                desc: 'Great result — you have strong comprehension skills! The next step is developing critical thinking and mastering advanced vocabulary.',
+                steps: [
+                    { title: 'Develop Critical Analysis', body: 'Don\'t just understand a passage — evaluate it. Ask: "Is the argument logical?", "Is there bias?", "What evidence supports the claim?"' },
+                    { title: 'Master Advanced Synonyms', body: 'Study high-level words like ACUMEN, CALLOW, QUALM, DUBIOUS. Use them in writing to cement understanding.' },
+                    { title: 'Study Rhetoric & Argumentation', body: 'Learn about ethos, pathos and logos. Recognising persuasive techniques makes you a stronger reader and communicator.' },
+                    { title: 'Write to Consolidate Reading', body: 'Write a short analytical response (3–4 sentences) after every passage you read. This deepens engagement.' },
+                    { title: 'Stretch into Advanced-Level Reading', body: 'Tackle longer essays, classical literature or challenging non-fiction to push beyond the proficient level.' }
+                ],
+                resources: [
+                    '📘 Classic essays — George Orwell\'s "Politics and the English Language"',
+                    '🎓 PrepScholar or SparkNotes for literary analysis techniques',
+                    '📚 "To Kill a Mockingbird" — rich in tone, theme and character analysis',
+                    '🗒 Advanced vocabulary lists (GRE or SAT prep word lists)'
+                ]
+            },
+            {
+                key: 'advanced',
+                label: '🟣 Advanced',
+                range: [22, 25],
+                desc: 'Excellent performance! You demonstrate strong reading comprehension and vocabulary. Your focus now is on maintaining and refining your skills at the highest level.',
+                steps: [
+                    { title: 'Read Primary Source Texts', body: 'Engage with original speeches, philosophical texts or legal documents. These challenge interpretation at the highest level.' },
+                    { title: 'Practise Timed Reading', body: 'Set a timer and work through comprehension passages under pressure. This builds skills for formal assessments.' },
+                    { title: 'Teach Concepts to Others', body: 'Explaining reading strategies to a peer or family member solidifies your own understanding and reveals any gaps.' },
+                    { title: 'Write Structured Analytical Essays', body: 'Choose a passage and write a 3-paragraph analysis: main idea, technique, and your evaluation of its effectiveness.' },
+                    { title: 'Challenge Yourself Further', body: 'Explore texts beyond this curriculum — academic articles, philosophy, debate transcripts. There is always more to discover.' }
+                ],
+                resources: [
+                    '🏛 Project Gutenberg — free access to classic literature',
+                    '📰 The Atlantic, The Guardian — long-form journalism and essays',
+                    '🎓 AP English Literature exam materials for practice under test conditions',
+                    '📖 "1984", "Brave New World" — challenging literary fiction'
+                ]
+            }
+        ];
+
+        // --- Two-tier question bank (add your real questions here) ---
+        // Keep exactly 2 difficulty groups:
+        // 1) foundation (lower difficulty)
+        // 2) challenge (higher difficulty)
+        const questionBank = {
+            foundation: [
+                {
+                    id: 'f1',
+                    text: 'BRIGHT',
+                    choices: ['A) dark', 'B) cold', 'C) fast', 'D) shiny', 'E) small'],
+                    answer: 3,
+                    tags: ['vocabulary', 'synonym']
+                },
+                {
+                    id: 'f2',
+                    text: 'ASSIST',
+                    choices: ['A) help', 'B) sit', 'C) ask', 'D) play', 'E) leave'],
+                    answer: 0,
+                    tags: ['vocabulary', 'synonym']
+                },
+                {
+                    id: 'f3',
+                    text: 'ANXIOUS',
+                    choices: ['A) angry', 'B) bored', 'C) happy', 'D) tired', 'E) nervous'],
+                    answer: 4,
+                    tags: ['vocabulary', 'synonym']
+                },
+                {
+                    id: 'f4',
+                    text: 'COZY',
+                    choices: ['A) messy', 'B) warm and comfortable', 'C) large', 'D) expensive', 'E) empty'],
+                    answer: 1,
+                    tags: ['vocabulary', 'synonym']
+                },
+                {
+                    id: 'f5',
+                    text: 'SWIFT',
+                    choices: ['A) slow', 'B) tall', 'C) gentle', 'D) quick', 'E) strong'],
+                    answer: 3,
+                    tags: ['vocabulary', 'synonym']
+                },
+                {
+                    id: 'f6',
+                    text: 'STERN',
+                    choices: ['A) strict', 'B) silly', 'C) friendly', 'D) confused', 'E) sleepy'],
+                    answer: 0,
+                    tags: ['vocabulary', 'synonym']
+                },
+                {
+                    id: 'f7',
+                    text: 'ABUNDANT',
+                    choices: ['A) rare', 'B) broken', 'C) useful', 'D) expensive', 'E) plenty'],
+                    answer: 4,
+                    tags: ['vocabulary', 'synonym']
+                },
+                {
+                    id: 'f8',
+                    text: 'TIMID',
+                    choices: ['A) loud', 'B) rude', 'C) shy', 'D) smart', 'E) lazy'],
+                    answer: 2,
+                    tags: ['vocabulary', 'synonym']
+                },
+                {
+                    id: 'f9',
+                    text: 'PERSIST',
+                    choices: ['A) give up', 'B) continue trying', 'C) rest', 'D) run fast', 'E) think hard'],
+                    answer: 1,
+                    tags: ['vocabulary', 'synonym']
+                },
+                {
+                    id: 'f10',
+                    text: 'FRAGILE',
+                    choices: ['A) strong', 'B) colorful', 'C) heavy', 'D) easily broken', 'E) old'],
+                    answer: 3,
+                    tags: ['vocabulary', 'synonym']
+                },
+                {
+                    id: 'f11',
+                    text: 'TRIUMPH',
+                    choices: ['A) victory', 'B) failure', 'C) effort', 'D) mistake', 'E) attempt'],
+                    answer: 0,
+                    tags: ['vocabulary', 'synonym']
+                },
+                {
+                    id: 'f12',
+                    text: 'WEARY',
+                    choices: ['A) happy', 'B) scared', 'C) tiresome', 'D) angry', 'E) tired'],
+                    answer: 4,
+                    tags: ['vocabulary', 'synonym']
+                }
+            ],
+            challenge: [
+                // Add harder questions here using the same format
+            ]
+        };
+
+        function shuffleQuestions(arr) {
+            const a = [...arr];
+            for (let i = a.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+        }
+
+        function pickRandomQuestions(bank, difficulty, count) {
+            const pool = bank[difficulty] || [];
+            return shuffleQuestions(pool).slice(0, Math.min(count, pool.length));
+        }
+
+        // Map score bands into only 2 difficulty sections
+        function getDifficultyBucketFromLevel(levelKey) {
+            if (['beginner', 'elementary', 'intermediate'].includes(levelKey)) {
+                return 'foundation';
+            }
+            return 'challenge';
+        }
+
+        function renderQuestionCards(questions) {
+            if (!questions.length) {
+                return '<p style="color:#6b7280;">No questions added in this difficulty group yet. Add your questions to <strong>questionBank</strong> in this file.</p>';
+            }
+
+            return questions.map((q, idx) => {
+                const qId = `q${idx}`;
+                const choices = (q.choices || []).map((choice, cidx) => `
+                    <label style="display:block; margin-bottom:0.3rem; cursor:pointer;">
+                        <input type="radio" name="${qId}" value="${cidx}" data-qidx="${idx}" data-answer="${q.answer}" style="margin-right:0.5em;">
+                        ${choice}
+                    </label>
+                `).join('');
+                return `
+                    <div class="q-card" id="card-${qId}">
+                        <p><strong>Q${idx + 1}.</strong> ${q.text}</p>
+                        <form>${choices}</form>
+                        <div class="feedback" style="margin-top:0.4em; min-height:1.2em;"></div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function getLevel(score) {
+            return levels.find(l => score >= l.range[0] && score <= l.range[1]) || levels[0];
+        }
+
+        function render() {
+            const hero    = document.getElementById('heroSection');
+            const badge   = document.getElementById('scoreBadge');
+            const title   = document.getElementById('heroTitle');
+            const main    = document.getElementById('mainContent');
+
+            if (!scoreData) {
+                hero.classList.add('beginner');
+                badge.textContent = 'No score recorded yet';
+                main.innerHTML = `
+                    <div class="no-score">
+                        <p>You haven't taken the practice test yet. Complete it first to get your personalised learning path.</p>
+                        <a href="practice.html" class="btn btn-primary">Take the Practice Test</a>
+                    </div>`;
+                return;
+            }
+
+            const { score, total, date } = scoreData;
+            const pct   = Math.round((score / total) * 100);
+            const level = getLevel(score);
+
+            hero.classList.add(level.key);
+            title.textContent  = `Your Learning Path — ${level.label}`;
+            badge.textContent  = `Score: ${score}/${total} (${pct}%) · ${date}`;
+
+            const stepsHTML = level.steps.map((s, i) => `
+                <div class="step">
+                    <div class="step-num">${i + 1}</div>
+                    <div class="step-body">
+                        <h3>${s.title}</h3>
+                        <p>${s.body}</p>
+                    </div>
+                </div>`).join('');
+
+            const bucket = getDifficultyBucketFromLevel(level.key);
+            const randomQuestions = pickRandomQuestions(questionBank, bucket, 20);
+            const questionCardsHTML = renderQuestionCards(randomQuestions);
+
+            main.innerHTML = `
+                <div class="level-banner ${level.key}">
+                    <h2>${level.label}</h2>
+                    <p>${level.desc}</p>
+                </div>
+
+                <h2 style="color:#2c3e50; margin-bottom:1rem;">📋 Your Recommended Steps</h2>
+                <div class="steps">${stepsHTML}</div>
+
+                <div class="practice-pack">
+                    <h2>🎲 Practice Questions</h2>
+                    <span class="pack-label">Difficulty Group: ${bucket}</span>
+                    ${questionCardsHTML}
+                </div>
+
+                <div class="actions">
+                    <a href="practice.html" class="btn btn-primary">🔄 Retake the Practice Test</a>
+                    <a href="signedin-home.html" class="btn btn-secondary">🏠 Back to Home</a>
+                </div>
+            `;
+
+            // Add answer selection logic for all questions
+            const qCards = main.querySelectorAll('.q-card');
+            qCards.forEach(card => {
+                const form = card.querySelector('form');
+                const feedback = card.querySelector('.feedback');
+                if (form) {
+                    form.addEventListener('change', function(e) {
+                        if (e.target && e.target.matches('input[type="radio"]')) {
+                            const selected = parseInt(e.target.value, 10);
+                            const correct = parseInt(e.target.getAttribute('data-answer'), 10);
+                            if (selected === correct) {
+                                feedback.textContent = '✅ Correct!';
+                                feedback.style.color = '#27ae60';
+                            } else {
+                                feedback.textContent = '❌ Incorrect.';
+                                feedback.style.color = '#e74c3c';
+                            }
+                            // Disable all radios in this form after answer
+                            const radios = form.querySelectorAll('input[type="radio"]');
+                            radios.forEach(r => r.disabled = true);
+                        }
+                    });
+                }
+            });
+        }
+
+        render();
+    </script>
+</body>
+</html>
