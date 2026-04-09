@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - SQ3R Learning</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        /* Header/Navigation */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #34495e;
+        }
+
+        .signout-btn {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .signout-btn:hover {
+            background-color: #c0392b;
+        }
+
+        /* Hero/Welcome Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 2rem;
+        }
+
+        /* Section Styling */
+        section {
+            background-color: white;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        section h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+
+        /* Dashboard Cards Grid */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .dashboard-card {
+            background-color: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .dashboard-card h3 {
+            color: #2c3e50;
+            font-size: 1.1rem;
+        }
+
+        .dashboard-card p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            flex: 1;
+        }
+
+        .card-btn {
+            background-color: #667eea;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            transition: background-color 0.3s;
+            align-self: flex-start;
+        }
+
+        .card-btn:hover {
+            background-color: #5a67d8;
+        }
+
+        /* Overview stats */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-box {
+            background-color: #ecf0f1;
+            border-radius: 8px;
+            padding: 1.2rem;
+            text-align: center;
+        }
+
+        .stat-box .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-box .stat-label {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0.3rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header/Navigation -->
+    <header>
+        <div class="logo">📚 SQ3R Learning</div>
+        <nav>
+            <a href="#overview">Overview</a>
+            <a href="#practice">Practice Test</a>
+            <a href="#learning-path">Learning Path</a>
+            <a href="#profile">Profile</a>
+            <button class="signout-btn" onclick="signOut()">Sign Out</button>
+        </nav>
+    </header>
+
+    <!-- Welcome Hero -->
+    <div class="hero">
+        <h1>Welcome back, <span id="userName">there</span>! 👋</h1>
+        <p>Ready to continue your learning journey?</p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+
+        <!-- Overview / Dashboard -->
+        <section id="overview">
+            <h2>📊 Dashboard Overview</h2>
+            <div class="stats-row">
+                <div class="stat-box">
+                    <div class="stat-value">🎯</div>
+                    <div class="stat-label">Practice Tests</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">📖</div>
+                    <div class="stat-label">Reading Sessions</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">🏆</div>
+                    <div class="stat-label">Achievements</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">📈</div>
+                    <div class="stat-label">Progress</div>
+                </div>
+            </div>
+            <p style="color:#666; line-height:1.7;">
+                Welcome to your personal dashboard! Use the sections below to take a practice test,
+                follow your personalised learning path, or update your profile. Your progress is saved
+                automatically so you can pick up right where you left off.
+            </p>
+        </section>
+
+        <!-- Quick-Access Cards -->
+        <section>
+            <h2>Quick Access</h2>
+            <div class="dashboard-grid">
+
+                <!-- Practice Test Card -->
+                <div class="dashboard-card" id="practice">
+                    <h3>🎯 Take Practice Test</h3>
+                    <p>Test your reading comprehension and communication skills with our interactive practice test. Get instant feedback on every answer.</p>
+                    <a href="practice.html" class="card-btn">Start Test</a>
+                </div>
+
+                <!-- Learning Path Card -->
+                <div class="dashboard-card" id="learning-path">
+                    <h3>🗺️ View Learning Path</h3>
+                    <p>Follow your personalised learning path tailored to your skill level. Work through exercises at your own pace and track your improvement.</p>
+                    <a href="learningpath.html" class="card-btn">View Path</a>
+                </div>
+
+                <!-- Profile Card -->
+                <div class="dashboard-card" id="profile">
+                    <h3>👤 View Profile</h3>
+                    <p>Review your account details, update your preferences, and see a summary of all your completed activities and scores.</p>
+                    <a href="#profile" class="card-btn">Go to Profile</a>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 SQ3R Learning - Educational Platform. All rights reserved.</p>
+        <p>Helping children master reading comprehension and communication skills.</p>
+    </footer>
+
+    <script>
+        // Redirect to index if not logged in
+        (function () {
+            const user = localStorage.getItem('sq3r_user');
+            if (!user) {
+                window.location.href = 'index.html';
+                return;
+            }
+            document.getElementById('userName').textContent = user;
+        })();
+
+        function signOut() {
+            localStorage.removeItem('sq3r_user');
+            window.location.href = 'index.html';
+        }
+    </script>
+
+</body>
+</html>
