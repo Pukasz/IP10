@@ -132,6 +132,23 @@
         .q-card p { margin-bottom: 0.55rem; color: #374151; }
         .q-card ul { margin-left: 1.1rem; color: #4b5563; }
         .q-card li { margin-bottom: 0.25rem; }
+        .passage-group {
+            border: 1px solid #dbe4f0;
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: #f8fafc;
+        }
+        .passage-group h3 {
+            color: #1f2937;
+            margin-bottom: 0.75rem;
+        }
+        .passage-text {
+            white-space: pre-line;
+            line-height: 1.7;
+            color: #374151;
+            margin-bottom: 1rem;
+        }
 
         .actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
         .btn {
@@ -387,12 +404,308 @@
                     choices: ['A) happy', 'B) scared', 'C) tiresome', 'D) angry', 'E) tired'],
                     answer: 4,
                     tags: ['vocabulary', 'synonym']
+                },
+                {
+                    id: 'fp1',
+                    type: 'passage',
+                    title: 'PASSAGE 1: The Mystery of the Lost City',
+                    passage: `Deep in the Amazon rainforest of Peru, archaeologists discovered the ruins of an ancient city hidden beneath thick layers of jungle vegetation. The city, which they named Vilcabamba, was built by the Inca people around 500 years ago. For centuries, this magnificent city lay forgotten, covered by vines and overgrown plants that had slowly claimed the stone structures.
+
+The discovery began when a local guide mentioned stories passed down through generations about a "lost city" hidden in the mountains. Intrigued by these tales, a team of archaeologists decided to investigate. Using modern technology like satellite imagery and GPS, they were able to locate the site more easily than explorers of the past could have. When they finally arrived at the location, they found themselves face to face with a wonder: massive stone buildings, intricate pathways, and terraces carved directly into the mountainside.
+
+What makes Vilcabamba truly remarkable is how the Inca built such a complex city in such a difficult environment. Without modern machinery or tools, they shaped enormous stones so precisely that many fit together without any mortar or cement. The architecture reveals the intelligence and skill of the Inca people. Today, the site attracts scholars and tourists from around the world who come to marvel at this testament to human ingenuity.`,
+                    questions: [
+                        {
+                            id: 'fp1q1',
+                            text: 'What was the main reason archaeologists were able to locate Vilcabamba more easily than explorers in the past?',
+                            choices: ['A) Local guides had more detailed maps', 'B) Modern technology like satellite imagery and GPS helped them', 'C) The jungle vegetation had been cleared', 'D) They had more money to spend on the search', 'E) The Inca people left written directions'],
+                            answer: 1,
+                            tags: ['reading', 'passage']
+                        },
+                        {
+                            id: 'fp1q2',
+                            text: 'Based on the passage, which statement best describes how the Inca built Vilcabamba?',
+                            choices: ['A) They used tools and machines similar to modern equipment', 'B) They had help from other civilizations', 'C) They shaped stones with great precision without modern machinery', 'D) They built the city quickly using simple methods', 'E) They hired engineers from other countries'],
+                            answer: 2,
+                            tags: ['reading', 'passage']
+                        },
+                        {
+                            id: 'fp1q3',
+                            text: 'What does the word "testament" mean as used in the passage?',
+                            choices: ['A) a will or legal document', 'B) proof or evidence', 'C) a building made of stone', 'D) an ancient language', 'E) a type of tool'],
+                            answer: 1,
+                            tags: ['reading', 'passage', 'vocabulary']
+                        },
+                        {
+                            id: 'fp1q4',
+                            text: 'Why did archaeologists become interested in searching for Vilcabamba?',
+                            choices: ['A) They found old maps in a museum', 'B) They were working on other projects nearby', 'C) A local guide told them stories about a lost city', 'D) They received funding from the government', 'E) They were looking for gold and treasure'],
+                            answer: 2,
+                            tags: ['reading', 'passage']
+                        }
+                    ]
+                },
+                {
+                    id: 'fp2',
+                    type: 'passage',
+                    title: 'PASSAGE 2: The Life Cycle of a Butterfly',
+                    passage: `Butterflies are among nature's most beautiful creatures, but their journey to become adult butterflies is a remarkable transformation. This process, called metamorphosis, takes several weeks and involves four distinct stages, each more fascinating than the last.
+
+The butterfly's life begins when a tiny egg is laid on a leaf. This egg is smaller than the head of a pin and is almost invisible to the human eye. After about three to five days, a caterpillar emerges from the egg. The caterpillar's only job is to eat, and it does this constantly. A caterpillar can eat a leaf larger than its own body in just one day! As it grows, the caterpillar sheds its skin multiple times, a process called molting.
+
+After several weeks of eating and growing, the caterpillar enters the third stage of metamorphosis: the pupa or chrysalis stage. During this time, the caterpillar wraps itself in a protective shell called a chrysalis. Inside this shell, something extraordinary happens. The caterpillar's body completely breaks down and reforms into a butterfly. This process can take anywhere from one week to several months, depending on the species and season.
+
+Finally, a beautiful butterfly emerges from the chrysalis. Its wings are wet and folded when it first emerges, so the butterfly must rest and allow its wings to dry before it can fly. Once its wings are ready, the butterfly takes to the air in search of flowers to pollinate and nectar to drink. The butterfly has only a few weeks to a few months to mate and lay eggs before its life cycle begins again.`,
+                    questions: [
+                        {
+                            id: 'fp2q1',
+                            text: 'What is the first stage in a butterfly\'s life cycle?',
+                            choices: ['A) The pupa stage', 'B) The caterpillar stage', 'C) The egg stage', 'D) The adult butterfly stage', 'E) The molting stage'],
+                            answer: 2,
+                            tags: ['reading', 'passage', 'science']
+                        },
+                        {
+                            id: 'fp2q2',
+                            text: 'Why is it important that a caterpillar eats so much?',
+                            choices: ['A) To taste all different types of plants', 'B) To gain energy and grow larger before transforming', 'C) To protect itself from predators', 'D) To develop its wings', 'E) To learn where flowers grow'],
+                            answer: 1,
+                            tags: ['reading', 'passage', 'science']
+                        },
+                        {
+                            id: 'fp2q3',
+                            text: 'What does "metamorphosis" mean based on how it is used in the passage?',
+                            choices: ['A) a type of butterfly', 'B) a complete change or transformation', 'C) a protective shell', 'D) the process of molting', 'E) laying eggs on leaves'],
+                            answer: 1,
+                            tags: ['reading', 'passage', 'vocabulary']
+                        },
+                        {
+                            id: 'fp2q4',
+                            text: 'According to the passage, why must a newly emerged butterfly rest before flying?',
+                            choices: ['A) It needs to find food', 'B) It is too tired from breaking out of the chrysalis', 'C) Its wings are wet and need time to dry', 'D) It must wait for other butterflies to appear', 'E) It needs to lay eggs first'],
+                            answer: 2,
+                            tags: ['reading', 'passage', 'science']
+                        }
+                    ]
+                },
+                {
+                    id: 'fp3',
+                    type: 'passage',
+                    title: 'PASSAGE 3: The Great Wall of China',
+                    passage: `The Great Wall of China is one of the most impressive structures ever built by humans. Stretching over 13,000 miles across northern China, it was constructed over many centuries by different dynasties to protect the country from invasions. The wall winds through mountains, deserts, and grasslands, following the natural contours of the landscape.
+
+Construction of the Great Wall began thousands of years ago, but the most famous sections were built during the Ming Dynasty, between 1368 and 1644. Workers, including soldiers and peasants, labored for generations to build this enormous structure. Building the wall required moving millions of tons of stone, brick, and earth. Many workers died during construction, making the Great Wall not just an engineering marvel but also a monument to human sacrifice.
+
+The wall served multiple purposes beyond just defense. Towers along the wall allowed soldiers to watch for approaching enemies from great distances. Gateways controlled trade routes and allowed the government to collect taxes from merchants traveling between regions. The wall also helped regulate the movement of nomadic peoples from the north who might otherwise have freely crossed into Chinese territory.
+
+Today, the Great Wall attracts millions of visitors from around the world who come to walk along its ancient stones and appreciate the engineering feat. However, many sections of the wall have deteriorated over time due to weather and lack of maintenance. Efforts are now underway to preserve and restore the remaining sections for future generations. The Great Wall stands as a symbol of China's strength, determination, and historical significance.`,
+                    questions: [
+                        {
+                            id: 'fp3q1',
+                            text: 'Why was the Great Wall of China originally constructed?',
+                            choices: ['A) To provide a place for tourists to visit', 'B) To connect different cities in China', 'C) To protect the country from invasions', 'D) To demonstrate the power of the king', 'E) To mark the borders between different regions'],
+                            answer: 2,
+                            tags: ['reading', 'passage', 'history']
+                        },
+                        {
+                            id: 'fp3q2',
+                            text: 'Based on the passage, which statement is true about the Ming Dynasty\'s role in building the Great Wall?',
+                            choices: ['A) They built the first sections of the wall', 'B) They built the most famous sections during a 276-year period', 'C) They were responsible for all construction of the wall', 'D) They completed the wall in less than 100 years', 'E) They only repaired damaged sections'],
+                            answer: 1,
+                            tags: ['reading', 'passage', 'history']
+                        },
+                        {
+                            id: 'fp3q3',
+                            text: 'What does the word "deteriorated" mean in the passage?',
+                            choices: ['A) aged like fine wine', 'B) become more beautiful', 'C) become worse in condition', 'D) been rebuilt', 'E) been protected carefully'],
+                            answer: 2,
+                            tags: ['reading', 'passage', 'vocabulary']
+                        },
+                        {
+                            id: 'fp3q4',
+                            text: 'What was one way the Great Wall helped the government control the country?',
+                            choices: ['A) By providing homes for soldiers', 'B) By keeping all people in one region', 'C) By allowing collection of taxes from merchants at gateways', 'D) By preventing all trade with other countries', 'E) By forcing nomadic peoples to become farmers'],
+                            answer: 2,
+                            tags: ['reading', 'passage', 'government']
+                        }
+                    ]
+                },
+                {
+                    id: 'fp4',
+                    type: 'passage',
+                    title: 'PASSAGE 4: The Invention of the Telephone',
+                    passage: `Before the telephone was invented, people could only communicate over long distances by writing letters, which took weeks to arrive. Alexander Graham Bell changed this forever in 1876 when he invented the telephone. Bell was a Scottish-born inventor and teacher of the deaf who was fascinated by the idea of transmitting sound over electrical wires.
+
+Bell was not working alone in his laboratory. His assistant, Thomas Watson, played a crucial role in the invention. The two men spent countless hours experimenting with various electrical devices, trying to convert sound waves into electrical signals and then back into sound. Their breakthrough came on March 10, 1876, when Bell successfully transmitted the first intelligible words over a wire to Watson: "Mr. Watson, come here, I want to see you."
+
+The invention of the telephone was not immediately welcomed by everyone. Some people worried that the telephone would replace face-to-face communication and harm society. Others doubted whether such a device could really work reliably. Despite these concerns, the telephone gradually gained acceptance. By the early 1900s, telephone networks were being installed in cities around the world, changing how people communicated forever.
+
+The telephone revolutionized society in ways that Bell himself might not have fully anticipated. It allowed families separated by distance to hear each other's voices. It enabled businesses to make faster decisions and conduct commerce more efficiently. Today, we can hardly imagine a world without the ability to communicate instantly with people far away. The telephone was truly one of the most important inventions of the modern era.`,
+                    questions: [
+                        {
+                            id: 'fp4q1',
+                            text: 'What problem was Alexander Graham Bell trying to solve with his invention?',
+                            choices: ['A) People could not read or write', 'B) Long-distance communication took too long', 'C) Letters were too expensive to send', 'D) People were too shy to talk to each other', 'E) Businesses needed a way to keep secrets'],
+                            answer: 1,
+                            tags: ['reading', 'passage', 'history']
+                        },
+                        {
+                            id: 'fp4q2',
+                            text: 'What does "intelligible" mean as used in the passage?',
+                            choices: ['A) intelligent or smart', 'B) clear and understandable', 'C) loud enough to hear', 'D) transmitted through wires', 'E) spoken in English'],
+                            answer: 1,
+                            tags: ['reading', 'passage', 'vocabulary']
+                        },
+                        {
+                            id: 'fp4q3',
+                            text: 'What was the main concern some people had about the telephone?',
+                            choices: ['A) It would be too expensive', 'B) It would never work properly', 'C) It would replace face-to-face communication and harm society', 'D) It would only work in cities', 'E) It would prevent people from writing letters'],
+                            answer: 2,
+                            tags: ['reading', 'passage']
+                        },
+                        {
+                            id: 'fp4q4',
+                            text: 'How did the invention of the telephone affect business?',
+                            choices: ['A) Businesses closed because they no longer needed to meet in person', 'B) Businesses could make faster decisions and conduct commerce more efficiently', 'C) Businesses became less profitable', 'D) Businesses had to hire more workers to operate telephones', 'E) Businesses were forced to compete with each other'],
+                            answer: 1,
+                            tags: ['reading', 'passage', 'application']
+                        }
+                    ]
+                },
+                {
+                    id: 'fp5',
+                    type: 'passage',
+                    title: 'PASSAGE 5: The Rainforest\'s Hidden Treasures',
+                    passage: `The rainforest is one of Earth's most important ecosystems, yet many of its secrets remain undiscovered. These dense forests, which cover only about 6 percent of the planet's surface, are home to more than half of all the world's plant and animal species. Scientists estimate that thousands of species living in the rainforest have never been identified or studied by humans.
+
+The rainforest provides numerous benefits that extend far beyond its borders. Many plants found in the rainforest have been used to create medicines that save millions of lives each year. Approximately 25 percent of modern pharmaceutical drugs contain ingredients derived from rainforest plants. Additionally, the rainforest plays a crucial role in regulating the Earth's climate by absorbing carbon dioxide and producing oxygen.
+
+Despite its importance, the rainforest is under serious threat. Deforestation—the clearing of forests for agriculture, logging, and development—destroys thousands of acres of rainforest every year. When the rainforest is destroyed, countless plant and animal species lose their habitat and become extinct before scientists even have a chance to study them. This loss of biodiversity is irreversible and represents a tremendous loss of potential medicines and scientific knowledge.
+
+Conservation efforts are underway to protect the rainforest, but they require cooperation from governments, corporations, and individuals around the world. Some initiatives focus on establishing protected areas where logging and hunting are prohibited. Others work with local communities to develop sustainable practices that allow people to benefit from the rainforest without destroying it. The future of the rainforest—and the countless species it contains—depends on our commitment to preservation.`,
+                    questions: [
+                        {
+                            id: 'fp5q1',
+                            text: 'What is the main idea of this passage?',
+                            choices: ['A) Rainforests are beautiful and should be visited by tourists', 'B) The rainforest is an important ecosystem that faces threats but can be protected', 'C) Medicine is the most important product that comes from rainforests', 'D) Governments should make logging illegal everywhere', 'E) The rainforest will disappear within the next hundred years'],
+                            answer: 1,
+                            tags: ['reading', 'passage', 'main-idea']
+                        },
+                        {
+                            id: 'fp5q2',
+                            text: 'According to the passage, what happens to plant and animal species when the rainforest is destroyed?',
+                            choices: ['A) They move to other forests', 'B) They adapt to living in cities', 'C) They lose their habitat and may become extinct before being studied', 'D) They are captured and kept in zoos', 'E) They hibernate until the forest grows back'],
+                            answer: 2,
+                            tags: ['reading', 'passage']
+                        },
+                        {
+                            id: 'fp5q3',
+                            text: 'What does "biodiversity" mean based on the passage?',
+                            choices: ['A) the diversity of scientific research', 'B) the variety of plant and animal species in an area', 'C) the ability of the rainforest to grow back', 'D) different types of medicines', 'E) the number of people living in the rainforest'],
+                            answer: 1,
+                            tags: ['reading', 'passage', 'vocabulary']
+                        },
+                        {
+                            id: 'fp5q4',
+                            text: 'Which statement best describes why conservation of the rainforest is difficult?',
+                            choices: ['A) There are no good conservation methods available', 'B) The rainforest is too large to protect', 'C) It requires cooperation from many different groups with different interests', 'D) Scientists do not agree that it needs protection', 'E) Conservation is too expensive for any country to afford'],
+                            answer: 2,
+                            tags: ['reading', 'passage', 'inference']
+                        }
+                    ]
+                },
+                {
+                    id: 'fp6',
+                    type: 'passage',
+                    title: 'PASSAGE 6: The Wright Brothers and Flight',
+                    passage: `On December 17, 1903, two bicycle mechanics from Ohio changed human history. Wilbur and Orville Wright achieved the first powered, controlled, heavier-than-air airplane flight. Their success came after years of patient research, countless experiments, and unwavering determination in the face of repeated failures and public skepticism.
+
+The Wright brothers' path to success was not straightforward. Before attempting powered flight, they built and tested numerous kites and gliders to understand the principles of aerodynamics—how air moves around objects and how to control that movement. They established a testing ground near Kitty Hawk, North Carolina, where steady winds helped their experiments. Through scientific observation and careful documentation, they gradually learned how to control a flying machine in three dimensions: roll, pitch, and yaw.
+
+What set the Wright brothers apart from other inventors attempting to achieve flight was their methodical approach. While others relied on luck or guesswork, the Wrights conducted systematic experiments and kept detailed records of their findings. They built their own wind tunnel to test wing designs and gather precise data. This scientific method allowed them to solve problems that had stumped other inventors for centuries.
+
+The first successful flight lasted only twelve seconds and covered just 120 feet, barely longer than the wingspan of a modern airplane. Yet this brief moment changed everything. The Wright brothers continued to improve their design, and by 1905, they had built an airplane capable of flying figure-eight patterns and staying aloft for more than thirty minutes. Their invention opened an entirely new era in human transportation and communication.`,
+                    questions: [
+                        {
+                            id: 'fp6q1',
+                            text: 'What was the main reason the Wright brothers succeeded where other inventors failed?',
+                            choices: ['A) They had more money than other inventors', 'B) They received help from the government', 'C) They used a methodical, scientific approach with careful documentation', 'D) They were smarter than other inventors', 'E) They had better materials available to them'],
+                            answer: 2,
+                            tags: ['reading', 'passage', 'history']
+                        },
+                        {
+                            id: 'fp6q2',
+                            text: 'Why did the Wright brothers choose to test their aircraft near Kitty Hawk, North Carolina?',
+                            choices: ['A) It was close to their home', 'B) The area had steady winds that helped their experiments', 'C) They could fly over the ocean without danger', 'D) The government required them to test there', 'E) They wanted to impress people in that region'],
+                            answer: 1,
+                            tags: ['reading', 'passage']
+                        },
+                        {
+                            id: 'fp6q3',
+                            text: 'What does "aerodynamics" mean based on the passage?',
+                            choices: ['A) flying in an airplane', 'B) how air moves around objects and how to control that movement', 'C) the building of airplanes', 'D) the study of different machines', 'E) the principles of bicycle design'],
+                            answer: 1,
+                            tags: ['reading', 'passage', 'vocabulary']
+                        },
+                        {
+                            id: 'fp6q4',
+                            text: 'According to the passage, which statement accurately describes the first successful flight?',
+                            choices: ['A) It lasted several minutes and traveled many miles', 'B) It was longer than most modern airplane wingspans', 'C) It lasted twelve seconds and covered 120 feet', 'D) It was witnessed by thousands of people', 'E) It proved that airplanes could never be practical'],
+                            answer: 2,
+                            tags: ['reading', 'passage']
+                        }
+                    ]
+                },
+                {
+                    id: 'fp7',
+                    type: 'passage',
+                    title: 'PASSAGE 7: Ocean Currents and Marine Life',
+                    passage: `The ocean is constantly in motion, driven by powerful currents that move water across the globe like underwater rivers. These currents, created by differences in water temperature and salt content, winds, and the rotation of the Earth, transport nutrients and organisms across vast distances. Understanding ocean currents is essential to understanding how marine ecosystems function.
+
+One of the most famous currents is the Gulf Stream, a warm current that flows along the eastern coast of North America and across the Atlantic Ocean to Europe. This current has profound effects on the climates of the regions it passes through. Without the Gulf Stream, Western Europe would be much colder and potentially frozen for much of the year, making it nearly impossible for people to live there. The current warms the Atlantic waters and is responsible for the relatively mild climate that Europe enjoys today.
+
+Ocean currents also play a vital role in distributing nutrients and supporting marine food webs. Nutrient-rich water from the deep ocean rises to the surface in a process called upwelling, bringing dissolved minerals that phytoplankton—tiny organisms at the base of the food chain—depend on. This creates thriving ecosystems that support fish, whales, and countless other marine animals. Areas with strong upwelling support some of the world's richest fishing grounds.
+
+However, climate change is altering ocean currents and the ecosystems they support. Rising ocean temperatures are slowing down some currents and changing water circulation patterns. These changes threaten marine species that have adapted to specific current patterns and temperatures. Scientists around the world are studying how these changes might affect global climate patterns and what steps could be taken to protect vulnerable marine ecosystems.`,
+                    questions: [
+                        {
+                            id: 'fp7q1',
+                            text: 'What is the main purpose of ocean currents?',
+                            choices: ['A) To prevent storms and hurricanes', 'B) To transport nutrients, organisms, and heat across the ocean', 'C) To regulate the temperature of all land on Earth', 'D) To provide transportation routes for ships', 'E) To create waves on the ocean surface'],
+                            answer: 1,
+                            tags: ['reading', 'passage', 'science']
+                        },
+                        {
+                            id: 'fp7q2',
+                            text: 'How does the Gulf Stream affect Western Europe?',
+                            choices: ['A) It cools the region and creates ice', 'B) It warms the Atlantic waters and provides a mild climate', 'C) It brings cold water from the Arctic', 'D) It prevents ships from crossing the Atlantic', 'E) It creates dangerous storms every winter'],
+                            answer: 1,
+                            tags: ['reading', 'passage', 'science']
+                        },
+                        {
+                            id: 'fp7q3',
+                            text: 'What does "upwelling" mean based on how it is used in the passage?',
+                            choices: ['A) water rising to the surface from the deep ocean', 'B) water cooling in the atmosphere', 'C) nutrients spreading across the ocean floor', 'D) fish swimming toward the surface', 'E) salt water becoming fresh'],
+                            answer: 0,
+                            tags: ['reading', 'passage', 'vocabulary']
+                        },
+                        {
+                            id: 'fp7q4',
+                            text: 'What is the author\'s main concern about climate change and ocean currents?',
+                            choices: ['A) Currents will move ships off course', 'B) All fish will die within a few years', 'C) Rising temperatures are altering currents and threatening marine ecosystems', 'D) Europe will become too hot', 'E) Upwelling will never happen again'],
+                            answer: 2,
+                            tags: ['reading', 'passage', 'main-idea']
+                        }
+                    ]
                 }
             ],
             challenge: [
                 // Add harder questions here using the same format
             ]
         };
+
+        function countQuestionsInEntry(entry) {
+            return Array.isArray(entry.questions) ? entry.questions.length : 1;
+        }
 
         function shuffleQuestions(arr) {
             const a = [...arr];
@@ -404,8 +717,20 @@
         }
 
         function pickRandomQuestions(bank, difficulty, count) {
-            const pool = bank[difficulty] || [];
-            return shuffleQuestions(pool).slice(0, Math.min(count, pool.length));
+            const pool = shuffleQuestions(bank[difficulty] || []);
+            const selected = [];
+            let questionCount = 0;
+
+            for (const entry of pool) {
+                if (questionCount >= count) {
+                    break;
+                }
+
+                selected.push(entry);
+                questionCount += countQuestionsInEntry(entry);
+            }
+
+            return selected;
         }
 
         // Map score bands into only 2 difficulty sections
@@ -416,26 +741,45 @@
             return 'challenge';
         }
 
-        function renderQuestionCards(questions) {
-            if (!questions.length) {
+        function renderQuestionCards(entries) {
+            if (!entries.length) {
                 return '<p style="color:#6b7280;">No questions added in this difficulty group yet. Add your questions to <strong>questionBank</strong> in this file.</p>';
             }
 
-            return questions.map((q, idx) => {
-                const qId = `q${idx}`;
+            let questionNumber = 0;
+
+            function renderSingleQuestion(q) {
+                const qId = `q${questionNumber}`;
+                const displayNumber = questionNumber + 1;
+                questionNumber += 1;
                 const choices = (q.choices || []).map((choice, cidx) => `
                     <label style="display:block; margin-bottom:0.3rem; cursor:pointer;">
-                        <input type="radio" name="${qId}" value="${cidx}" data-qidx="${idx}" data-answer="${q.answer}" style="margin-right:0.5em;">
+                        <input type="radio" name="${qId}" value="${cidx}" data-qid="${q.id || qId}" data-answer="${q.answer}" style="margin-right:0.5em;">
                         ${choice}
                     </label>
                 `).join('');
+
                 return `
                     <div class="q-card" id="card-${qId}">
-                        <p><strong>Q${idx + 1}.</strong> ${q.text}</p>
+                        <p><strong>Q${displayNumber}.</strong> ${q.text}</p>
                         <form>${choices}</form>
                         <div class="feedback" style="margin-top:0.4em; min-height:1.2em;"></div>
                     </div>
                 `;
+            }
+
+            return entries.map((entry) => {
+                if (Array.isArray(entry.questions)) {
+                    return `
+                        <div class="passage-group">
+                            <h3>${entry.title}</h3>
+                            <div class="passage-text">${entry.passage}</div>
+                            ${entry.questions.map(renderSingleQuestion).join('')}
+                        </div>
+                    `;
+                }
+
+                return renderSingleQuestion(entry);
             }).join('');
         }
 
